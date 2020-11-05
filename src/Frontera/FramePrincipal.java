@@ -5,6 +5,10 @@
  */
 package Frontera;
 
+import Entidad.Sistema;
+import Entidad.Usuario;
+import java.util.ArrayList;
+
 /**
  *
  * @author LENOVO
@@ -14,12 +18,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     private Registro registro = new Registro();
     private Ingreso ingreso = new Ingreso();
+    public static Sistema sistema =new Sistema();
     
     /**
      * Creates new form FramePrincipal
      */
     public FramePrincipal() {
         initComponents();
+        inicializacion();
         
     }
     
@@ -152,6 +158,44 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
     }
 
+    public void inicializacion(){
+        
+        //Creación del arreglo
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+        
+        //Creación de usuarios 
+        Usuario a= new Usuario();
+        Usuario b= new Usuario();
+        Usuario c= new Usuario();
+        
+        //Asignar nombres y contraseñas 
+        a.setNombre("juan");
+        a.setPassword("1234");
+        b.setNombre("pedro");
+        b.setPassword("123");
+        c.setNombre("maria");
+        c.setPassword("12345");
+        
+        //Agregar al arreglo
+        usuarios.add(a);
+        usuarios.add(b);
+        usuarios.add(c);
+        
+        //Asignar el arreglo a la variable de clase "sistema"
+        sistema.setUsuarios(usuarios);
+        
+        //Iterador para comprobar que todo funcione correctamente 
+        for(Usuario u: sistema.getUsuarios()){
+            System.out.println(u.getNombre());
+            System.out.println(u.getPassword());
+            System.out.println("------------");
+        }
+        
+    }
+      
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresoB;
     private javax.swing.JPanel jPanel1;

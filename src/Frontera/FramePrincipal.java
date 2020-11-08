@@ -157,7 +157,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     public void inicializacion(){
         
         //Creación del arreglo
